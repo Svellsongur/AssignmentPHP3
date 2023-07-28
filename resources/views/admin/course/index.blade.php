@@ -15,7 +15,27 @@ Course list
 
 <!-- Show content -->
 @section('content')
-<h1>nội dung course</h1>
+<h1>List Course</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>Thêm</th>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><a href="">Sửa</a><a href="">Xóa</a></td>
+    </tr>
+</table>
 @endsection
 
 <!-- gọi admin footer -->

@@ -14,11 +14,7 @@
     @yield('header')
     @yield('content')
     @yield('footer')
-
-
-
     @yield('page_js')
-
 </body>
 
 </html>
