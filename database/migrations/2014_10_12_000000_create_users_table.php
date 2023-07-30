@@ -12,12 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->primary('id');
+            $table->string('image')->unique()->nullable();
+            $table->string('name')->nullable(); 
+            $table->tinyInteger('age')->nullable();
+            $table->integer('phone_number')->unique()->nullable();
             $table->string('password');
-            $table->rememberToken();
+            $table->tinyInteger('gender')->default(1);
+            $table->string('email')->unique()->nullable();
+            $table->string('address')->nullable();
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+            $table->tinyInteger('status')->default(1); //ban nguoi dung
             $table->timestamps();
         });
     }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('admin.course');
+
+
+
+Route::get('/loginform', function () {
+    return view('default.login');
+})->name('loginform');
+
+Route::get('/main', function () {
+    return view('admin.course.index');
 });
+
+
+
+Route::match(['GET', 'POST'], '/login', [LoginController::class, 'login'])->name('login');
+
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+//hiện tại route main đang để là về trang của laravel nên sửa đường dẫn đi 
