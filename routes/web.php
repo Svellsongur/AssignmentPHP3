@@ -27,8 +27,7 @@ Route::get('/main', function () {
 
 
 
+
 Route::match(['GET', 'POST'], '/login', [LoginController::class, 'login'])->name('login');
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-
-//hiện tại route main đang để là về trang của laravel nên sửa đường dẫn đi 
