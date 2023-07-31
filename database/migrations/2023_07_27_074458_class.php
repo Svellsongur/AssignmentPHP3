@@ -13,9 +13,9 @@ return new class extends Migration
     {
         //
         Schema::create('classes', function (Blueprint $table) {
-            $table->primary('id');
+            $table->id();
             $table->string('image')->unique()->nullable();
-            $table->string('name')->nullable();     
+            $table->string('name')->nullable();
             $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
             $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
