@@ -13,10 +13,10 @@ return new class extends Migration
     {
         //
         Schema::create('courses', function (Blueprint $table) {
-            $table->primary('id');
+            $table->id();
             $table->string('image')->unique()->nullable();
-            $table->string('name')->nullable();     
-            $table->int('price')->nullable();
+            $table->string('name')->nullable();
+            $table->integer('price')->nullable();
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
             $table->timestamps();

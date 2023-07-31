@@ -13,7 +13,7 @@ return new class extends Migration
     {
         //
         Schema::create('khomagg', function (Blueprint $table) {
-            $table->primary('id');
+            $table->id();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('sale_id')->references('id')->on('sale')->onDelete('cascade');
             $table->timestamps();

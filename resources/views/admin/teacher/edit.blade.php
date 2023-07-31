@@ -1,0 +1,57 @@
+@extends('templates.layout')
+@section('content')
+    <h1>{{ $title }} </h1>
+    <form action="{{ route('edit-teacher', ['id'=>request()->route('id')]) }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <div class="form-group">
+            <label class="col-md-3 col-sm-4 control-label">Ảnh</label>
+            <div class="col-md-9 col-sm-8">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <img id="anh_the_preview"
+                            src="{{ $teacher->image? Storage::url($teacher->image): 'https://png.pngtree.com/element_our/png/20181206/users-vector-icon-png_260862.jpg' }}"
+                            alt="your image" style="max-width: 200px; height:100px; margin-bottom: 10px;"
+                            class="img-fluid" />
+                        <input type="file" name="image" accept="image/*"
+                            class="form-control-file @error('image') is-invalid @enderror" id="cmt_anh">
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Tên</label>
+            <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$teacher->name}}">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$teacher->email}}">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Tuổi</label>
+            <input type="text" name="age" class="form-control" value="{{$teacher->age}}">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Số điện thoại</label>
+            <input type="text" name="phone_number" class="form-control" value="{{$teacher->phone_number}}">
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" value="1" type="radio" name="gender" id="flexRadioDefault1" {{$teacher->gender == 1 ? 'checked': ''}}>
+            <label class="form-check-label" for="flexRadioDefault1">
+                Nam
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" value="2" type="radio" name="gender" id="flexRadioDefault2" {{$teacher->gender == 2 ? 'checked': ''}}>
+            <label class="form-check-label" for="flexRadioDefault2">
+                Nữ
+            </label>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Địa chỉ</label>
+            <input type="text" name="address" class="form-control" id="exampleInputPassword1" value="{{$teacher->address}}">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Cập nhật</button>
+    </form>
+@endsection

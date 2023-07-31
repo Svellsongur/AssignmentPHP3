@@ -13,8 +13,8 @@ return new class extends Migration
     {
         //
         Schema::create('sale', function (Blueprint $table) {
-            $table->primary('id');
-            $table->string('sale_code')->nullable(); 
+            $table->id();
+            $table->string('sale_code')->nullable();
             $table->tinyInteger('sale_percent')->nullable();
             $table->string('description');
             $table->tinyInteger('count')->nullable();

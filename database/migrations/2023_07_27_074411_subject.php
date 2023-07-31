@@ -13,8 +13,9 @@ return new class extends Migration
     {
         //
         Schema::create('subjects', function (Blueprint $table) {
-            $table->primary('id');
-            $table->string('name'); 
+            $table->id();
+            $table->string('name');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

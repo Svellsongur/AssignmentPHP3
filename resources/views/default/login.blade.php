@@ -1,4 +1,7 @@
 @extends('templates.layout')
+@section('page_title')
+Login
+@endsection
 <!-- Show content -->
 <div class="container">
     @auth

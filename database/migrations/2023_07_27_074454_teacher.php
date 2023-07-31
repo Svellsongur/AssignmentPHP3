@@ -13,16 +13,15 @@ return new class extends Migration
     {
         //
         Schema::create('teachers', function (Blueprint $table) {
-            $table->primary('id');
+            $table->id();
             $table->string('image')->unique()->nullable();
-            $table->string('name')->nullable(); 
+            $table->string('name')->nullable();
             $table->string('email')->unique()->nullable();
             $table->integer('phone_number')->unique()->nullable();
             $table->tinyInteger('age')->nullable();
             $table->tinyInteger('gender')->default(1);
             $table->string('address')->nullable();
-            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
-            // $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

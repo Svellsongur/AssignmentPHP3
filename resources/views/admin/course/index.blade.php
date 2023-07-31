@@ -10,7 +10,7 @@ Course list
 
 <!-- gọi admin header -->
 @section('header')
-@include('admin.header')
+@include('default.header')
 @endsection
 
 <!-- Show content -->
@@ -40,7 +40,7 @@ Course list
 
 <!-- gọi admin footer -->
 @section('footer')
-@include('admin.footer')
+@include('default.footer')
 @endsection
 
 <!-- JS nội tuyến -->

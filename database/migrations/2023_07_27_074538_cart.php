@@ -13,7 +13,7 @@ return new class extends Migration
     {
         //
         Schema::create('carts', function (Blueprint $table) {
-            $table->primary('id');
+            $table->id();
             $table->integer('price')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
